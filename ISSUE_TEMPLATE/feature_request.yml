@@ -1,0 +1,21 @@
+name: Feature request
+description: Propose an improvement
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What are you trying to do, and why is it hard today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What should change? For API or security-model changes, describe the behaviour and the failure modes.
+  - type: textarea
+    id: upstream
+    attributes:
+      label: Upstream projects involved
+      description: Does this depend on Open Cluster Management, kube-agentic-networking, Gateway API, SPIFFE or MCP features?
