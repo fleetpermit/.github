@@ -32,9 +32,9 @@ identity that makes a tool call.
 
 ### Security philosophy
 
-Errors never add authority: a failure withdraws grants or leaves them to expire on time. A backend
-with no grant is closed by the shipped default-deny anchor, which is part of the installation because
-upstream enforces nothing on a backend without any policy. Leases can only narrow a policy, never
+With the default-deny anchor installed, errors never add authority: a failure withdraws grants or
+leaves them to expire on time. The anchor is part of the installation, because upstream enforces
+nothing on a backend without any policy. Leases can only narrow a policy, never
 widen it. The time bound is enforced where the call happens. Every delivered rule is traceable to its
 source by a SHA-256 content digest. These properties are backed by tests you can run. See the
 [threat model](https://github.com/fleetpermit/fleetpermit/blob/main/docs/threat-model.md). Report
