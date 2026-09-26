@@ -12,7 +12,7 @@
 A platform team writes one `FleetAccessPolicy`: which workload identities (SPIFFE IDs) may call which
 MCP tools, on which clusters, for at most how long. Access is activated with a short-lived
 `ToolAccessLease`, delivered only to the clusters an Open Cluster Management placement selects, and
-enforced by each cluster's Kubernetes agentic-networking gateway. The expiry is part of the rule the
+enforced by each cluster's kube-agentic-networking gateway. The expiry is part of the rule the
 gateway evaluates, so a lease stops working on time even when the fleet hub is unreachable.
 
 FleetPermit builds on neutral upstream open-source projects and replaces none of them:
@@ -27,7 +27,7 @@ identity that makes a tool call.
 |---|---|
 | **Main repository** | [fleetpermit/fleetpermit](https://github.com/fleetpermit/fleetpermit) |
 | **Documentation** | [fleetpermit.github.io](https://fleetpermit.github.io/) |
-| **Get started** | `make demo-up && make demo-run`: a 1 hub + 3 cluster lab on your laptop, no AI API keys needed |
+| **Get started** | `git clone https://github.com/fleetpermit/fleetpermit && cd fleetpermit && make demo-up && make demo-run`: a 1 hub + 3 cluster lab on your laptop, no AI API keys needed ([prerequisites](https://github.com/fleetpermit/fleetpermit#prerequisites)) |
 | **Measured results** | [real multi-cluster scenarios and latencies](https://fleetpermit.github.io/results.html) |
 
 ### Security philosophy
