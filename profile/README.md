@@ -15,12 +15,13 @@ MCP tools, on which clusters, for at most how long. Access is activated with a s
 enforced by each cluster's Kubernetes agentic-networking gateway. The expiry is part of the rule the
 gateway evaluates, so a lease stops working on time even when the fleet hub is unreachable.
 
-FleetPermit does not replace anything. It composes neutral upstream open-source projects:
+FleetPermit builds on neutral upstream open-source projects and replaces none of them:
 [Open Cluster Management](https://open-cluster-management.io/),
 [Kubernetes SIG Network's kube-agentic-networking](https://github.com/kubernetes-sigs/kube-agentic-networking),
 [Gateway API](https://gateway-api.sigs.k8s.io/), [Envoy](https://www.envoyproxy.io/),
 [SPIFFE](https://spiffe.io/) and the [Model Context Protocol](https://modelcontextprotocol.io/).
-It works with any agent implementation, because an agent is just a workload making a tool call.
+It works with any agent implementation, because to FleetPermit an agent is a workload with an
+identity that makes a tool call.
 
 | | |
 |---|---|
@@ -31,9 +32,11 @@ It works with any agent implementation, because an agent is just a workload maki
 
 ### Security philosophy
 
-Fail closed. Leases can only narrow a policy, never widen it. The time bound is enforced where the
-call happens. Every delivered rule is traceable to its source by a SHA-256 content digest. Every claim
-we make is backed by a test you can run. See the
+Errors never add authority: a failure withdraws grants or leaves them to expire on time. A backend
+with no grant is closed by the shipped default-deny anchor, which is part of the installation because
+upstream enforces nothing on a backend without any policy. Leases can only narrow a policy, never
+widen it. The time bound is enforced where the call happens. Every delivered rule is traceable to its
+source by a SHA-256 content digest. These properties are backed by tests you can run. See the
 [threat model](https://github.com/fleetpermit/fleetpermit/blob/main/docs/threat-model.md). Report
 vulnerabilities privately through GitHub's **Report a vulnerability** button on the repository's Security tab.
 
