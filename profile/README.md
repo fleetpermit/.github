@@ -36,7 +36,7 @@ With the default-deny anchor installed, errors never add authority: a failure wi
 leaves them to expire on time. The anchor is part of the installation, because upstream enforces
 nothing on a backend without any policy. Leases can only narrow a policy, never
 widen it. The time bound is enforced where the call happens. Every delivered rule is traceable to its
-source by a SHA-256 content digest. These properties are backed by tests you can run. See the
+source by its annotations and a SHA-256 content digest. These properties are backed by tests you can run. See the
 [threat model](https://github.com/fleetpermit/fleetpermit/blob/main/docs/threat-model.md). Report
 vulnerabilities privately through GitHub's **Report a vulnerability** button on the repository's Security tab.
 
